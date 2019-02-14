@@ -1,7 +1,6 @@
 package com.learnMaven.model;
 
-
-import java.util.Arrays;
+import java.util.Map;
 
 // A model based on the GSON example to store our movie data
 
@@ -15,8 +14,8 @@ public class Movie {
     private String director;
     private String writer;
     private String actors;
-    private Long plot;
-    private String[] ratings;
+    private String plot;
+    private Map<String, String> properties;
 
     public String getTitle() {
         return this.title;
@@ -82,23 +81,15 @@ public class Movie {
         this.actors = actors;
     }
 
-    public Long getPlot (){
+    public String getPlot() {
         return this.plot;
     }
 
-    public void setPlot (Long plot) {
+    public void setPlot(String plot) {
         this.plot = plot;
     }
 
-    public String[] getRatings(){
-        return this.ratings;
-    }
-
-    public void setRatings(String[] ratings){
-        this.ratings = ratings;
-    }
-
-    public String toString(){
+    public String toString() {
         // method from the gson example for printing data
         StringBuilder sb = new StringBuilder();
         sb.append("**********Movie Details************\n");
@@ -111,8 +102,15 @@ public class Movie {
         sb.append("Writer(s): " + getWriter() + "\n");
         sb.append("Actor(s): " + getActors() + "\n");
         sb.append("Plot: " + getPlot() + "\n");
-        sb.append("Ratings: " + Arrays.toString(getRatings()) + "\n");
 
         return sb.toString();
+    }
+
+    public Map<String, String> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Map<String, String> properties) {
+        this.properties = properties;
     }
 }
